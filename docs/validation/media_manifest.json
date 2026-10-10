@@ -1,0 +1,86 @@
+[
+  {
+    "name": "g1_standing.mp4",
+    "sha256": "e3bf570cbf8b60cbe8550308fe01b16adbba274e97e290fd231773ed4ef31543",
+    "recording_sha256": "68f7a6d8540a738f44dbbec0aec399be905d47c278f0af41703eb455539627b0",
+    "bytes": 13316140,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "25/1",
+          "nb_frames": "778"
+        }
+      ],
+      "format": {
+        "duration": "31.120000"
+      }
+    }
+  },
+  {
+    "name": "g1_walking.mp4",
+    "sha256": "70cbe5408489d052770f0c8c31b1b31388c391f44c9476224aa41ee44e2a7944",
+    "recording_sha256": "36a2790564aaa391222f8ebe107668b740d9dc3d81679d8588d24f821dd42614",
+    "bytes": 16419350,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "25/1",
+          "nb_frames": "853"
+        }
+      ],
+      "format": {
+        "duration": "34.120000"
+      }
+    }
+  },
+  {
+    "name": "h1_standing.mp4",
+    "sha256": "d84ff0b1505b139916d228b7b99ae2dbf62e57b3fa72d38dd43264869f4cb9c1",
+    "recording_sha256": "f2fa200037033f99226a3c72175f909a981687a9bd4f4e3ca17a717f8d98eb07",
+    "bytes": 4789826,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "25/1",
+          "nb_frames": "325"
+        }
+      ],
+      "format": {
+        "duration": "13.000000"
+      }
+    }
+  },
+  {
+    "name": "h1_walking.mp4",
+    "sha256": "6185859939d0cda3764dcf8ae25cc062838b1df1b2c2647bb06cae03edb618ba",
+    "recording_sha256": "8c178dd92cdfde884fde898c9d78b1a51f0538b78f2eb938fd1665103e5230ab",
+    "bytes": 6714267,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "25/1",
+          "nb_frames": "400"
+        }
+      ],
+      "format": {
+        "duration": "16.000000"
+      }
+    }
+  }
+]

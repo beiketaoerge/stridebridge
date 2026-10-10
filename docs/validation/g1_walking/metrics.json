@@ -1,0 +1,43 @@
+{
+  "robot": "g1",
+  "scenario": "walking",
+  "success": true,
+  "failure": null,
+  "switch_completed": true,
+  "duration_s": 34.119999999995734,
+  "post_transition_duration_s": 6.000000000000405,
+  "post_settle_max_tilt_deg": 3.038271139603545,
+  "max_tilt_deg": 15.725806203420095,
+  "min_height_m": 0.7226809545975763,
+  "post_mean_vx_m_s": 0.23817138248948028,
+  "post_velocity_rmse_m_s": 0.07673734734648857,
+  "post_mean_planar_speed_m_s": 0.2429290950127438,
+  "command_vx_m_s": 0.3,
+  "events": [
+    {
+      "time": 6.019999999999559,
+      "event": "request:motion"
+    },
+    {
+      "time": 6.499999999999506,
+      "event": "settled:motion"
+    },
+    {
+      "time": 27.699999999995526,
+      "event": "request:locomotion"
+    },
+    {
+      "time": 28.099999999995305,
+      "event": "settled:locomotion"
+    }
+  ],
+  "scope": "One deterministic flat-ground MuJoCo trial; no external support forces. Preset nominal standing spawn.",
+  "criteria": {
+    "post_seconds": 6.0,
+    "settle_allowance_seconds": 1.0,
+    "max_post_tilt_deg": 15.0,
+    "fall_tilt_deg": 45.0,
+    "max_standing_mean_planar_speed_m_s": 0.15,
+    "max_walking_mean_vx_error_m_s": 0.15
+  }
+}

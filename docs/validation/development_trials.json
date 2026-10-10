@@ -1,0 +1,66 @@
+[
+  {
+    "run": "g1_standing_001",
+    "robot": "g1",
+    "scenario": "standing",
+    "reported_success_at_time": false,
+    "failure": "fall_threshold",
+    "post_settle_max_tilt_deg": null
+  },
+  {
+    "run": "g1_standing_002",
+    "robot": "g1",
+    "scenario": "standing",
+    "reported_success_at_time": false,
+    "failure": "fall_threshold",
+    "post_settle_max_tilt_deg": null
+  },
+  {
+    "run": "g1_standing_003",
+    "robot": "g1",
+    "scenario": "standing",
+    "reported_success_at_time": false,
+    "failure": "fall_threshold",
+    "post_settle_max_tilt_deg": null
+  },
+  {
+    "run": "g1_standing_004",
+    "robot": "g1",
+    "scenario": "standing",
+    "reported_success_at_time": true,
+    "failure": null,
+    "post_settle_max_tilt_deg": 1.3260897118690549
+  },
+  {
+    "run": "g1_walking_001",
+    "robot": "g1",
+    "scenario": "walking",
+    "reported_success_at_time": true,
+    "failure": null,
+    "post_settle_max_tilt_deg": 3.038271139603545
+  },
+  {
+    "run": "h1_standing_001",
+    "robot": "h1",
+    "scenario": "standing",
+    "reported_success_at_time": true,
+    "failure": null,
+    "post_settle_max_tilt_deg": 2.229881119602381
+  },
+  {
+    "run": "h1_walking_001",
+    "robot": "h1",
+    "scenario": "walking",
+    "reported_success_at_time": true,
+    "failure": null,
+    "post_settle_max_tilt_deg": 2.6875619339573302
+  },
+  {
+    "run": "h1_walking_002",
+    "robot": "h1",
+    "scenario": "walking",
+    "reported_success_at_time": true,
+    "failure": null,
+    "post_settle_max_tilt_deg": 3.231217847919748
+  }
+]

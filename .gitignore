@@ -1,0 +1,14 @@
+.cache/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+assets/public/
+assets/local/
+runs/
+.env
+.env.*
+*.log

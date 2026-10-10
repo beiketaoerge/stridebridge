@@ -1,0 +1,43 @@
+{
+  "robot": "h1",
+  "scenario": "standing",
+  "success": true,
+  "failure": null,
+  "switch_completed": true,
+  "duration_s": 13.00000000000101,
+  "post_transition_duration_s": 6.000000000001551,
+  "post_settle_max_tilt_deg": 2.229881119602381,
+  "max_tilt_deg": 21.17105534605197,
+  "min_height_m": 0.9088905892162896,
+  "post_mean_vx_m_s": -0.0011803346642499824,
+  "post_velocity_rmse_m_s": 0.024189788577931262,
+  "post_mean_planar_speed_m_s": 0.04392880700421969,
+  "command_vx_m_s": 0.0,
+  "events": [
+    {
+      "time": 3.019999999999889,
+      "event": "request:motion"
+    },
+    {
+      "time": 3.499999999999836,
+      "event": "settled:cross"
+    },
+    {
+      "time": 6.579999999999497,
+      "event": "request:locomotion"
+    },
+    {
+      "time": 6.979999999999453,
+      "event": "settled:stand"
+    }
+  ],
+  "scope": "One deterministic flat-ground MuJoCo trial; no external support forces. H1 board collision removed for this flat-ground demo; preset motion-frame-0 spawn.",
+  "criteria": {
+    "post_seconds": 6.0,
+    "settle_allowance_seconds": 1.0,
+    "max_post_tilt_deg": 15.0,
+    "fall_tilt_deg": 45.0,
+    "max_standing_mean_planar_speed_m_s": 0.15,
+    "max_walking_mean_vx_error_m_s": 0.3
+  }
+}

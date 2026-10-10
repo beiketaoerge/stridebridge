@@ -1,0 +1,6 @@
+# Numerical/inference versions used for the recorded release. Python 3.8–3.10.
+numpy==1.24.4
+scipy==1.10.1
+mujoco==3.2.3
+onnxruntime==1.19.2
+torch==2.4.1

@@ -1,0 +1,124 @@
+{
+  "controller": "examples/h1_latest/deploy_real_h1_motion_104_h1switch_0927.py",
+  "controller_sha256": "52be0e2a97abfcad3106e4e5292393e51c4fa656f42f6ccc47300c5a2bda4a82",
+  "source_unchanged_during_tests": true,
+  "n_total": 25,
+  "n_pass": 25,
+  "all_passed": true,
+  "offline": true,
+  "coverage": "AST-loaded actual control methods; actual PolicySwitcher; virtual clock and feedback; all motor q/dq/kp/kd/tau recorded",
+  "limitations": "No SDK/DDS, physical remote, motor response, real TorchScript inference, or stability verification",
+  "baseline": {
+    "controller_sha256": "1cec814ab21ebeed6a81ce7096725ff3ddba246ede9e0501da7c1309a53b761c",
+    "assessment": "Historical workspace TASK_COMPLETION_ASSESSMENT_20261002.md (not included in this repository)",
+    "prior_isolated_reproductions": [
+      "Select already pressed at run entry still allowed one position command before damping",
+      "Same-tick R1+A+B cancelled pending cross and then requested cross again"
+    ],
+    "same_suite_rerun": false,
+    "reason": "Original source was not retained; baseline refers only to the earlier recorded isolated reproductions"
+  },
+  "tests": [
+    {
+      "test": "__main__.OperatorFlowTests.test_auto_start_cancellation_requires_manual_start_and_a",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_cancel_beats_same_tick_r1_a_b_request",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_fresh_feedback_does_not_hide_stale_inference_snapshot",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_held_a_release_and_new_r1_a_press_can_request_crossing",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_held_r1_a_from_stance_does_not_request_crossing",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_holding_b_blocks_a_later_cross_request",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_inference_stall_rejects_position_and_damps",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_position_publish_rechecks_feedback_age",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_ramp_rejects_invalid_feedback_before_position",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_ramp_stops_on_feedback_loss",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_run_select_already_pressed_never_infers_or_publishes_position",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_run_select_arrives_inside_final_feedback_read",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_run_select_arriving_during_inference_never_publishes_position",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_select_during_crc_never_reaches_final_position_publish",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_select_during_stance_hold_emits_no_more_position",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_select_on_fifth_ramp_tick_emits_no_sixth_position",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_select_on_final_ramp_sleep_still_cancels_startup",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_start_and_select_requires_release_then_fresh_start",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_start_wait_rejects_invalid_raw_imu",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_start_wait_rejects_lost_feedback",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_start_wait_rejects_stale_feedback",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_startup_select_arrives_inside_final_feedback_read",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_startup_select_during_crc_never_publishes_position",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_startup_select_returns_to_zero_and_demands_fresh_start",
+      "status": "PASS"
+    },
+    {
+      "test": "__main__.OperatorFlowTests.test_zero_torque_clears_every_field_on_every_motor",
+      "status": "PASS"
+    }
+  ],
+  "publication_note": "Filesystem paths normalized for publication; test results and source hashes are unchanged."
+}

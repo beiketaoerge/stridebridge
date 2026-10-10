@@ -1,0 +1,34 @@
+{
+  "python": "3.8.20",
+  "mujoco": "3.2.3",
+  "numpy": "1.24.4",
+  "args": {
+    "robot": "g1",
+    "scenario": "walking",
+    "output": "runs/release/g1_walking",
+    "motion_start": 2.8,
+    "motion_end": 24.0,
+    "blend": 0.4,
+    "entry_gap": 1.5,
+    "exit_gap": 2.0,
+    "speed": 0.3,
+    "post_seconds": 6.0,
+    "max_seconds": 45.0,
+    "left_assist": "coordinated"
+  },
+  "scene": "assets/public/unitree_mujoco/unitree_robots/g1/scene_29dof.xml",
+  "source_hashes": {
+    "stridebridge/__init__.py": "c6025f257a7781e49dc9e1831d49e665b63cbfc62256854626ec1c2632ce1450",
+    "stridebridge/demo.py": "dfa7e6a40ee09c4ec0fdeb0814c7eb48688c45d0c7f8989a4065d8555eb71e2f",
+    "stridebridge/g1.py": "1345c67a970802d7c91c5a1801550f0d6545f4c327eab76d250531c70bd26d4c",
+    "stridebridge/geometry.py": "6bfee239b530a69598a60151378aca83ef0f10db5e2230eb826dfa66244338ac",
+    "stridebridge/h1.py": "b012c6f811e72a75a0c735f2e4ac03cff8b97d626ee1f6460631d3f6320dfc0f",
+    "stridebridge/left_leg_assist.py": "ffe8394c48e0ae65f719554e6a790a512fa018cc047deaa3b1f676898cfdd689",
+    "stridebridge/render.py": "e6e12851d41670591925da8bfb16c6908ddfa1e25fd7b9c31a3fbd1331880415",
+    "stridebridge/simulation.py": "d0cdc1bf75a3e99e20a214bf464aa31e9fa08da582afb0a17c623b500568aa7c",
+    "stridebridge/switcher.py": "975a0e8a5ddb23cd4701f8061c0841a0d45cdb9977927110fe0aaf250051edcf"
+  },
+  "asset_manifest_sha256": "c3b68915c276c9ebc914dea347e91f95c136a5c7042734b5c62ee69ab3e8755b",
+  "scipy": "1.10.1",
+  "onnxruntime": "1.19.2"
+}

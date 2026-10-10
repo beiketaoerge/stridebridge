@@ -1,0 +1,26 @@
+[
+  {
+    "file": "deploy_real_h1_motion_104_h1switch_0927.py",
+    "source": "0927_real_deploy/deploy_real_h1_motion_104_h1switch_0927.py",
+    "source_sha256": "53ffaacd2267ecd09f82081e76005815feb16ea99f81504a1975e66cb7836746",
+    "published_sha256": "52be0e2a97abfcad3106e4e5292393e51c4fa656f42f6ccc47300c5a2bda4a82"
+  },
+  {
+    "file": "h1_policy_switcher.py",
+    "source": "0927_real_deploy/h1_policy_switcher.py",
+    "source_sha256": "9affb3542d57eb43a1da6480558bdf1dd6988a66171cb4ab5975cdbc92b4e9a0",
+    "published_sha256": "9affb3542d57eb43a1da6480558bdf1dd6988a66171cb4ab5975cdbc92b4e9a0"
+  },
+  {
+    "file": "left_leg_assist.py",
+    "source": "0927_real_deploy/left_leg_assist.py",
+    "source_sha256": "ffe8394c48e0ae65f719554e6a790a512fa018cc047deaa3b1f676898cfdd689",
+    "published_sha256": "ffe8394c48e0ae65f719554e6a790a512fa018cc047deaa3b1f676898cfdd689"
+  },
+  {
+    "file": "run_native0927_dds_test.py",
+    "source": "0927_real_deploy/run_native0927_dds_test.py",
+    "source_sha256": "4147ce174e5a776684b9f5291d9c83d08375fe861b82f894e383f960fcfad159",
+    "published_sha256": "c5fe4c180bab41e75627a297e8ee4277c9f9db922928a461f2252f8e8d7b0dec"
+  }
+]

@@ -5,8 +5,10 @@ for Unitree H1 and G1, with active balance before and after the motion.
 
 - Preserves the latest H1 controller, coordinated assist and operator regressions.
 - Adds G1 29-DoF velocity/dance adapters using downloadable Unitree policies.
-- Provides four continuous MuJoCo videos: standing → motion → standing and
-  walking → pause → motion → walking for both robots.
+- Provides four continuous MuJoCo videos: active balance → motion → active balance
+  and walking → active balance → motion → walking for both robots. Active balance
+  uses zero commanded velocity with continuous feedback and policy updates;
+  stepping and balance corrections remain possible.
 - Includes reference-clock ownership, smooth target/gain blending and measured
   post-transition balance/velocity results.
 

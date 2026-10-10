@@ -14,7 +14,12 @@ Every final episode completed its clip and handback and continued for six second
 The first second after handback is a settling interval; post-settling metrics use
 the following five seconds. G1 follows the upstream dance interval 2.8–24.0 s.
 H1 consumes the supplied 154-frame, 50 Hz reference. Its coordinated assist remains
-enabled. Both walking scenarios stop before entry and resume walking after return.
+enabled. Both walking scenarios use zero commanded velocity before entry and
+restore the forward command after return. During the zero-command intervals,
+locomotion inference and motor-target updates continue at 50 Hz; the H1 gait
+phase also continues. The robot remains free to step or correct its balance.
+The `standing` scenario uses this same active zero-command behavior throughout
+its locomotion phases.
 
 The demo's explicit pass criteria are: handback completes within the trial timeout;
 the robot stays below 45° tilt and above 0.45 m (G1) / 0.65 m (H1) base height;

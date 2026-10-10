@@ -47,9 +47,20 @@ readiness, with the source controller's tilt/speed checks. G1 uses a 1.5 rad ent
 gap and a tilt gate. These are per-pair baseline settings, not universal stability
 conditions. The simulation has a bounded timeout for a gate that never opens.
 
-The walking scenario commands approach motion, stops for 1.5 s before requesting
-imitation, then resumes walking one second after handback. It demonstrates
-walking before/after a motion; it does not claim arbitrary gait-phase entry.
+The walking scenario requests forward travel, then sets the velocity command to
+zero 1.5 s before requesting imitation. It restores the travel command one second
+after handback. These are scheduled zero-command intervals, not pauses in control.
+The locomotion policy receives live feedback and computes new joint targets every
+20 ms; its observation history and the H1 gait phase keep advancing. It may step
+in place or make balance corrections at `v_cmd = 0`. Zero commanded velocity does
+not require zero measured velocity, motionless feet or a frozen joint pose.
+
+While an entry request is pending, the locomotion policy retains full control.
+The readiness checks above select when blending begins; the elapsed zero-command
+interval alone is not a stability guarantee. Holding the imitation reference at
+its start frame during entry blending also leaves feedback control running.
+The demo demonstrates walking before/after a motion; it does not claim arbitrary
+gait-phase entry.
 
 The switching primitive rejects nonfinite feedback and commands, negative gains
 and invalid timing. The original H1 controller additionally owns operator priority,

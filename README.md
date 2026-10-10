@@ -5,18 +5,23 @@
 StrideBridge builds on the latest H1 switching controller and adds a reproducible
 G1 demo using public pretrained policies. One command owner blends joint targets
 and PD gains, manages motion time, and hands control back to a velocity policy.
-A zero velocity command provides active standing; a nonzero command resumes walking.
+At zero commanded velocity, the locomotion policy keeps using live feedback and
+may step in place to balance. A nonzero command requests travel.
 
 The current release combines pretrained experts with a deterministic transition
 manager. Learning a transition policy is the next research objective.
 
-| H1: walk → pause → step-over motion → walk | G1: walk → pause → dance → walk |
+| H1: walk → active balance → step-over motion → walk | G1: walk → active balance → dance → walk |
 | --- | --- |
 | [![H1 demo](docs/media/h1_walking.gif)](https://github.com/beiketaoerge/stridebridge/releases/download/v0.1.0/h1_walking.mp4) | [![G1 demo](docs/media/g1_walking.gif)](https://github.com/beiketaoerge/stridebridge/releases/download/v0.1.0/g1_walking.mp4) |
 
 Videos show continuous MuJoCo trajectories at real-time playback speed. Both
 demos use flat ground and preset initial poses. The H1 step-over reference is
 executed without the obstacle in this release's switching demo.
+Active balance here means locomotion with `v_cmd = 0`: inference, feedback,
+joint-target updates and the H1 gait phase continue throughout the interval.
+The `standing` scenario name also means zero commanded velocity, not locked joints
+or a requirement for motionless feet.
 
 ## Run the public G1 demo
 
@@ -67,8 +72,8 @@ The new demo calls its migrated policy adapters directly in MuJoCo. See
 
 ```mermaid
 flowchart LR
-    A[Velocity policy: stand or walk] --> B[Request motion]
-    B --> C[Wait for compatible state and target gap]
+    A[Active locomotion policy] --> B[Request motion at zero commanded velocity]
+    B --> C[Keep locomotion active until entry checks pass]
     C --> D[Blend targets and PD gains]
     D --> E[Execute reference motion]
     E --> F[Blend back to velocity policy]
@@ -121,7 +126,7 @@ collect transition state, expert disagreement, support/contact state, joint
 velocities and recovery outcomes; train a high-level policy to choose entry time,
 blend duration and bounded corrective actions. Evaluate it on held-out motions,
 starting speeds and perturbations against this fixed switching controller.
-Standing-entry and walking-before/after demonstrations are implemented here;
+Zero-command entry and walking-before/after demonstrations are implemented here;
 direct switching at arbitrary walking phases and learned transition weights remain
 future work.
 

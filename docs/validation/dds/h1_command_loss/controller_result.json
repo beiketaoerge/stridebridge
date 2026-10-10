@@ -1,0 +1,10 @@
+{
+  "pid": 1361320,
+  "failure": "RuntimeError: simulator ended before controller completion",
+  "returned_at_s": null,
+  "events": [],
+  "states_received": 1585,
+  "invalid_states": 0,
+  "commands_sent": 151,
+  "policy_steps": 159
+}

@@ -10,67 +10,12 @@ from types import SimpleNamespace
 
 import mujoco
 import numpy as np
-import yaml
 
 from .geometry import tilt
-from .simulation import Simulation
 from .switcher import CommandLimiter, PolicySwitcher
 
 ROOT = Path(__file__).resolve().parents[1]
-H1_JOINTS = ["left_hip_yaw_joint", "left_hip_roll_joint", "left_hip_pitch_joint", "left_knee_joint", "left_ankle_joint",
-             "right_hip_yaw_joint", "right_hip_roll_joint", "right_hip_pitch_joint", "right_knee_joint", "right_ankle_joint",
-             "torso_joint", "left_shoulder_pitch_joint", "left_shoulder_roll_joint", "left_shoulder_yaw_joint", "left_elbow_joint",
-             "right_shoulder_pitch_joint", "right_shoulder_roll_joint", "right_shoulder_yaw_joint", "right_elbow_joint"]
-
-
-def build_g1(args):
-    from .g1 import G1Mimic, G1Policy
-    assets = ROOT/"assets/public"
-    policies = assets/"unitree_rl_lab/deploy/robots/g1_29dof/config/policy"
-    walk = G1Policy("locomotion", policies/"velocity/v0")
-    motion = G1Mimic(policies/"mimic/dance_102", args.motion_start, args.motion_end)
-    sim = Simulation(assets/"unitree_mujoco/unitree_robots/g1/scene_29dof.xml", 29)
-    q = np.zeros(29)
-    q[walk.ids] = walk.default
-    sim.initialize(q, [0, 0, .79])
-    return sim, walk, motion
-
-
-def build_h1(args):
-    import torch
-    from .h1 import Dwaq0816Adapter, MotionAdapter
-    torch.set_num_threads(1)
-    assets = ROOT/"assets/local/h1"
-    bundle = assets/"0927"
-    configs = bundle/"deploy/deploy_real/configs"
-    files = list(configs.glob("*model30000.yaml"))
-    if len(files) != 1:
-        raise FileNotFoundError("Import the H1 assets first; see scripts/import_h1_assets.py --help")
-    cfg = yaml.safe_load(files[0].read_text())
-    for key in ["policy_path", "motion_file"]:
-        cfg[key] = cfg[key].replace("{LEGGED_GYM_ROOT_DIR}", str(bundle))
-    for key in ["default_angles", "action_scale", "joint_limit_lower", "joint_limit_upper"]:
-        cfg[key] = np.asarray(cfg[key], dtype=np.float32)
-    cfg = SimpleNamespace(**cfg)
-    with np.load(cfg.motion_file, allow_pickle=False) as data:
-        reference = {k: v.astype(np.float32) for k, v in data.items()}
-    owner = SimpleNamespace(config=cfg, motion=reference,
-                            policy=torch.jit.load(cfg.policy_path, map_location="cpu").eval(),
-                            options=SimpleNamespace(motion_clock="owned", entry_max_tilt=15., entry_max_speed=2.,
-                                                    left_assist_mode=args.left_assist))
-    motion = MotionAdapter(owner)
-    walk = Dwaq0816Adapter(assets/"0823/deploy/deploy_real/configs/h1_dwaq_0816_box3kg.yaml")
-    xml = bundle/"unitree_mujoco/unitree_robots/h1/scene_coretest_stairhome_obstacle0p30_yawm76p5.xml"
-    sim = Simulation(xml, 20, H1_JOINTS, cfg.joint2motor_idx)
-    q = np.zeros(20)
-    q[cfg.joint2motor_idx] = cfg.default_angles
-    sim.initialize(q, reference["body_pos_w"][0, 0], reference["body_quat_w"][0, 0])
-    # Flat-ground switching keeps the original robot dynamics; only the board is removed.
-    board = mujoco.mj_name2id(sim.model, mujoco.mjtObj.mjOBJ_GEOM, "coretest_stairhome_obstacle_0p30")
-    if board >= 0:
-        sim.model.geom_contype[board] = sim.model.geom_conaffinity[board] = 0
-        sim.model.geom_rgba[board, 3] = 0
-    return sim, walk, motion
+from .models import build_g1, build_h1
 
 
 def run(args):

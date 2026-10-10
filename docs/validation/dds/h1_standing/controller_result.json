@@ -1,0 +1,27 @@
+{
+  "pid": 1356476,
+  "failure": null,
+  "returned_at_s": 6.972,
+  "events": [
+    {
+      "time": 3.012,
+      "event": "request:motion"
+    },
+    {
+      "time": 3.492,
+      "event": "settled:cross"
+    },
+    {
+      "time": 6.572,
+      "event": "request:locomotion"
+    },
+    {
+      "time": 6.972,
+      "event": "settled:stand"
+    }
+  ],
+  "states_received": 6509,
+  "invalid_states": 0,
+  "commands_sent": 651,
+  "policy_steps": 651
+}

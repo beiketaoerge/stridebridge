@@ -1,0 +1,88 @@
+{
+  "robot": "h1",
+  "scenario": "standing",
+  "transport": "Unitree SDK2 DDS",
+  "network_interface": "lo",
+  "domain_id": 181,
+  "success": true,
+  "failure": null,
+  "fault_injection": "none",
+  "events": [
+    {
+      "time": 3.012,
+      "event": "request:motion"
+    },
+    {
+      "time": 3.492,
+      "event": "settled:cross"
+    },
+    {
+      "time": 6.572,
+      "event": "request:locomotion"
+    },
+    {
+      "time": 6.972,
+      "event": "settled:stand"
+    }
+  ],
+  "processes": {
+    "simulator": {
+      "pid": 1356475,
+      "failure": null,
+      "physics_steps": 6505,
+      "simulation_seconds": 13.010000000001014,
+      "wall_seconds": 13.01007819899678,
+      "commands_received": 651,
+      "invalid_commands": 0,
+      "states_published": 6786,
+      "command_watchdog_at_s": null,
+      "physics_lateness_p99_ms": 0.4102296076598577
+    },
+    "controller": {
+      "pid": 1356476,
+      "failure": null,
+      "returned_at_s": 6.972,
+      "events": [
+        {
+          "time": 3.012,
+          "event": "request:motion"
+        },
+        {
+          "time": 3.492,
+          "event": "settled:cross"
+        },
+        {
+          "time": 6.572,
+          "event": "request:locomotion"
+        },
+        {
+          "time": 6.972,
+          "event": "settled:stand"
+        }
+      ],
+      "states_received": 6509,
+      "invalid_states": 0,
+      "commands_sent": 651,
+      "policy_steps": 651
+    }
+  },
+  "exit_codes": {
+    "simulator": 0,
+    "controller": 0
+  },
+  "scope": "Real-time MuJoCo with asynchronous DDS feedback/commands in separate processes. Preset initial pose; flat ground; no support forces; no physical robot.",
+  "duration_s": 13.02000000000101,
+  "post_transition_duration_s": 6.02800000000101,
+  "post_settle_max_tilt_deg": 2.3869532230487502,
+  "max_tilt_deg": 21.38044311167084,
+  "min_height_m": 0.9133338498466117,
+  "post_mean_vx_m_s": 0.0045385448895323074,
+  "post_mean_planar_speed_m_s": 0.045388532420716735,
+  "command_vx_m_s": 0.0,
+  "real_time_factor": 0.9999939893523644,
+  "feedback_age_p99_ms": 4.93975600329577,
+  "max_feedback_age_ms": 5.522553998162039,
+  "max_command_age_ms": 4.90931399690453,
+  "inference_p99_ms": 3.0408809980144724,
+  "policy_period_p99_ms": 20.55792599261622
+}

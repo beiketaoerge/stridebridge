@@ -30,6 +30,8 @@ def phase_label(t, weight, events):
         return "BLEND TO MOTION" if t < leave else "BLEND TO LOCOMOTION"
     if weight >= 1-1e-6:
         return "MOTION IMITATION"
+    if entry <= t < leave:
+        return "ACTIVE BALANCE / ENTRY REQUESTED"
     return "LOCOMOTION / BALANCE" if t < entry else "RETURN TO LOCOMOTION"
 
 
@@ -87,12 +89,18 @@ def main():
                 phase = phase_label(t, log["motion_weight"][i], metrics["events"])
                 draw.text((24, 50), phase, font=body_font, fill=(78, 211, 185))
                 draw.text((args.width-240, 16), f"{t:05.2f} s  /  {duration:.1f} s", font=body_font, fill="white")
-                draw.text((args.width-240, 50), "MuJoCo  |  continuous rollout", font=small_font, fill=(173, 190, 207))
+                transport = "MuJoCo + DDS  |  loopback" if manifest.get("transport") == "dds" else "MuJoCo  |  continuous rollout"
+                draw.text((args.width-240, 50), transport, font=small_font, fill=(173, 190, 207))
                 y = args.height-82
                 draw.rectangle([0, y, args.width, args.height], fill=(13, 21, 35, 240))
                 speed = float(log["velocity"][i, 0])
                 draw.text((24, y+13), f"Tilt {log['tilt'][i]:4.1f}°    Base {log['height'][i]:.2f} m    Vx {speed:+.2f} m/s    Cmd {log['command'][i, 0]:.2f} m/s", font=body_font, fill="white")
-                draw.text((24, y+45), "Flat ground · active balance · no support forces", font=small_font, fill=(173, 190, 207))
+                footer = "Flat ground · active balance · no support forces"
+                if manifest.get("transport") == "dds":
+                    footer = (f"DDS / lo · 500 Hz physics · 50 Hz policy · "
+                              f"Feedback age {log['feedback_age'][i]*1000:.1f} ms · "
+                              f"Command age {log['command_age'][i]*1000:.1f} ms")
+                draw.text((24, y+45), footer, font=small_font, fill=(173, 190, 207))
                 x0, x1 = 24, args.width-24
                 draw.rectangle([x0, args.height-12, x1, args.height-7], fill=(54, 66, 84))
                 draw.rectangle([x0, args.height-12, x0+(x1-x0)*t/duration, args.height-7], fill=(78, 211, 185))

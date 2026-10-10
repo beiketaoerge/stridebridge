@@ -1,0 +1,82 @@
+[
+  {
+    "name": "h1_dds_walking.mp4",
+    "size": 6808886,
+    "sha256": "37b0ec374da22e57826fe24b6273e8f5f404990005c15676ff83b6dc394cedae",
+    "recording_sha256": "e609713c042caa19a643875932780ed773076f21f0a518bf2ef56abb5a906879",
+    "ffprobe": {
+      "programs": [],
+      "streams": [
+        {
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "25/1",
+          "nb_frames": "400"
+        }
+      ],
+      "format": {
+        "duration": "16.000000"
+      }
+    }
+  },
+  {
+    "name": "h1_dds_standing.mp4",
+    "size": 4834444,
+    "sha256": "a141f8d8e368fee7b9ae0ed94d767e460f6946e83044571c9922b3f81fad65e0",
+    "recording_sha256": "11d6f17eec1bfddf84e2ea9f3ae3efd551d7e55c70ee05a2fe8aca71fb170386",
+    "ffprobe": {
+      "programs": [],
+      "streams": [
+        {
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "25/1",
+          "nb_frames": "326"
+        }
+      ],
+      "format": {
+        "duration": "13.040000"
+      }
+    }
+  },
+  {
+    "name": "g1_dds_walking.mp4",
+    "size": 16600323,
+    "sha256": "2c40131dd707084bf79fd47e00e9622a959db96e55d28424122b9beeeb1539bf",
+    "recording_sha256": "e06900c2899a5fe0c6d873bbd3e728c5547e143e6f997ad9de28992a8bc78aff",
+    "ffprobe": {
+      "programs": [],
+      "streams": [
+        {
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "25/1",
+          "nb_frames": "854"
+        }
+      ],
+      "format": {
+        "duration": "34.160000"
+      }
+    }
+  },
+  {
+    "name": "g1_dds_standing.mp4",
+    "size": 13491522,
+    "sha256": "7ce83bfcdcde2c1aba1797b8dbad99ae6e7b743845d2dd702bee261ac0bbe917",
+    "recording_sha256": "49d5f4453dd5a4a46ea4262ed801ce6e92561e3effaf5b9a1537d121d709b258",
+    "ffprobe": {
+      "programs": [],
+      "streams": [
+        {
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "25/1",
+          "nb_frames": "779"
+        }
+      ],
+      "format": {
+        "duration": "31.160000"
+      }
+    }
+  }
+]

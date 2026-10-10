@@ -1,5 +1,8 @@
 # Release validation
 
+This page records the v0.1.0 direct simulation baseline. See
+[DDS validation](dds_validation.md) for the v0.2.0 separate-process DDS results.
+
 Recorded on 2026-10-10. These are four deterministic demonstration episodes,
 each with one entry and one exit. They are not a randomized success-rate study.
 

@@ -1,0 +1,54 @@
+{
+  "robot": "h1",
+  "scenario": "walking",
+  "transport": "Unitree SDK2 DDS",
+  "network_interface": "lo",
+  "domain_id": 181,
+  "success": false,
+  "failure": "command_timeout",
+  "fault_injection": "command-loss",
+  "events": [],
+  "processes": {
+    "simulator": {
+      "pid": 1361319,
+      "failure": "command_timeout",
+      "physics_steps": 1579,
+      "simulation_seconds": 3.157999999999874,
+      "wall_seconds": 3.15675730699877,
+      "commands_received": 151,
+      "invalid_commands": 0,
+      "states_published": 1861,
+      "command_watchdog_at_s": 3.0959999999998806,
+      "physics_lateness_p99_ms": 0.3962778173445259
+    },
+    "controller": {
+      "pid": 1361320,
+      "failure": "RuntimeError: simulator ended before controller completion",
+      "returned_at_s": null,
+      "events": [],
+      "states_received": 1585,
+      "invalid_states": 0,
+      "commands_sent": 151,
+      "policy_steps": 159
+    }
+  },
+  "exit_codes": {
+    "simulator": 1,
+    "controller": 1
+  },
+  "scope": "Real-time MuJoCo with asynchronous DDS feedback/commands in separate processes. Preset initial pose; flat ground; no support forces; no physical robot.",
+  "duration_s": 3.159999999999876,
+  "post_transition_duration_s": 0.0,
+  "post_settle_max_tilt_deg": null,
+  "max_tilt_deg": 3.193766396643842,
+  "min_height_m": 0.9817108511924744,
+  "post_mean_vx_m_s": null,
+  "post_mean_planar_speed_m_s": null,
+  "command_vx_m_s": 0.6,
+  "real_time_factor": 1.0003936612416635,
+  "feedback_age_p99_ms": 4.88823513835086,
+  "max_feedback_age_ms": 5.102741000882816,
+  "max_command_age_ms": 144.3747320008697,
+  "inference_p99_ms": 3.0982538014359293,
+  "policy_period_p99_ms": 20.51336538694159
+}

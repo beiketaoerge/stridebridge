@@ -1,0 +1,18 @@
+[
+  {
+    "run": "h1_command_loss",
+    "expected_failure_detected": true,
+    "simulator_failure": "command_timeout",
+    "controller_failure": "RuntimeError: simulator ended before controller completion",
+    "watchdog_at_s": 3.0959999999998806,
+    "simulation_end_s": 3.157999999999874
+  },
+  {
+    "run": "g1_state_loss",
+    "expected_failure_detected": true,
+    "simulator_failure": null,
+    "controller_failure": "RuntimeError: Stale DDS feedback: receipt=0.1109s tick=0.1109s",
+    "watchdog_at_s": null,
+    "simulation_end_s": 3.117999999999878
+  }
+]

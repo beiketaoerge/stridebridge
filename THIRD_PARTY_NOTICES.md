@@ -18,3 +18,13 @@ Downloaded Unitree MuJoCo assets retain its BSD-3-Clause license.
 The downloader retains asset provenance, revisions and individual checksums.
 The repository's MIT license does not replace the licenses or terms of external
 weights, motion data, robot meshes, or the user's locally imported H1 bundle.
+
+## DDS dependencies (v0.2.0)
+
+The optional DDS runner imports Unitree SDK2 Python (BSD-3-Clause), tested at
+commit `404fe44d76f705c002c97e773276f2a8fefb57e4`, and CycloneDDS Python 0.10.2
+(Eclipse Public License 2.0 / Eclipse Distribution License 1.0).
+These packages are installed separately; their code and native libraries are not
+redistributed in this repository or the recordings archive.
+Sources: [Unitree SDK2](https://github.com/unitreerobotics/unitree_sdk2_python),
+[CycloneDDS Python](https://github.com/eclipse-cyclonedds/cyclonedds-python).

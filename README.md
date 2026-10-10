@@ -10,10 +10,12 @@ may step in place to balance. A nonzero command requests travel.
 
 The current release combines pretrained experts with a deterministic transition
 manager. Learning a transition policy is the next research objective.
+Version 0.2.0 runs the controller and MuJoCo in separate processes connected by
+**Unitree SDK2 DDS**, with independent 50 Hz control and 500 Hz physics loops.
 
 | H1: walk → active balance → step-over motion → walk | G1: walk → active balance → dance → walk |
 | --- | --- |
-| [![H1 demo](docs/media/h1_walking.gif)](https://github.com/beiketaoerge/stridebridge/releases/download/v0.1.0/h1_walking.mp4) | [![G1 demo](docs/media/g1_walking.gif)](https://github.com/beiketaoerge/stridebridge/releases/download/v0.1.0/g1_walking.mp4) |
+| [![H1 DDS demo](docs/media/h1_dds_walking.gif)](https://github.com/beiketaoerge/stridebridge/releases/download/v0.2.0/h1_dds_walking.mp4) | [![G1 DDS demo](docs/media/g1_dds_walking.gif)](https://github.com/beiketaoerge/stridebridge/releases/download/v0.2.0/g1_dds_walking.mp4) |
 
 Videos show continuous MuJoCo trajectories at real-time playback speed. Both
 demos use flat ground and preset initial poses. The H1 step-over reference is
@@ -23,7 +25,29 @@ joint-target updates and the H1 gait phase continue throughout the interval.
 The `standing` scenario name also means zero commanded velocity, not locked joints
 or a requirement for motionless feet.
 
-## Run the public G1 demo
+## Run with DDS
+
+After installing the project, SDK2 and robot assets using the
+[DDS setup guide](docs/dds.md):
+
+```bash
+python -m stridebridge.dds_demo --robot g1 --scenario walking --output runs/dds_g1_walking
+python -m stridebridge.dds_demo --robot h1 --scenario walking --output runs/dds_h1_walking
+MUJOCO_GL=osmesa python -m stridebridge.render runs/dds_g1_walking
+MUJOCO_GL=osmesa python -m stridebridge.render runs/dds_h1_walking
+```
+
+The launcher starts both processes and records their actual DDS traffic counters,
+packet ages and physics trajectories. Use `--scenario standing` for active
+locomotion at zero commanded velocity before and after the motion. H1 uses the
+original local model bundles; G1 uses the public downloads below.
+
+All DDS demo traffic is restricted to localhost (`lo`) on isolated domains.
+[DDS results and fault checks](docs/dds_validation.md) document the tested scope.
+The [v0.1.0 videos](https://github.com/beiketaoerge/stridebridge/releases/tag/v0.1.0)
+remain available as the direct MuJoCo baseline.
+
+## Run the public G1 demo directly
 
 Use a Python virtual environment from the repository root. Python 3.10 is
 recommended; the recorded inference runs used Python 3.8.20.
@@ -90,7 +114,7 @@ back into the velocity policy's action coordinates, keeping its history consiste
 during imitation. H1 retains the raw-action conventions of the original controllers.
 See [the adapter guide](docs/switching.md) for integration details.
 
-## Recorded results
+## Recorded direct-simulation results (v0.1.0)
 
 Each row is one deterministic trial with six seconds of control after handback.
 Tilt and velocity below are measured after a one-second settling interval.
@@ -118,6 +142,8 @@ The release was checked with 11 package tests and the 25 retained H1 operator
 regressions. The H1 adapter equivalence test requires the local checkpoint bundles;
 CI skips that test when the bundles are absent. ROS installations that inject
 unrelated pytest plugins can run with `PYTEST_DISABLE_PLUGIN_AUTOLOAD=1`.
+Version 0.2.0 adds DDS contract and watchdog checks; see
+[DDS validation](docs/dds_validation.md) for its test counts and recordings.
 
 ## Toward a learned transition policy
 
@@ -136,4 +162,6 @@ The switching foundation is [h1switch](https://github.com/JamesW546/h1switch).
 Public G1 models come from [Unitree RL Lab](https://github.com/unitreerobotics/unitree_rl_lab);
 robot descriptions come from [Unitree MuJoCo](https://github.com/unitreerobotics/unitree_mujoco).
 The baseline locomotion models come from [Unitree RL Gym](https://github.com/unitreerobotics/unitree_rl_gym).
+DDS transport uses [Unitree SDK2 Python](https://github.com/unitreerobotics/unitree_sdk2_python)
+and [CycloneDDS](https://github.com/eclipse-cyclonedds/cyclonedds).
 See [LICENSE](LICENSE) and [third-party notices](THIRD_PARTY_NOTICES.md).

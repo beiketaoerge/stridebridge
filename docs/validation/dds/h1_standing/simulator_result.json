@@ -1,0 +1,12 @@
+{
+  "pid": 1356475,
+  "failure": null,
+  "physics_steps": 6505,
+  "simulation_seconds": 13.010000000001014,
+  "wall_seconds": 13.01007819899678,
+  "commands_received": 651,
+  "invalid_commands": 0,
+  "states_published": 6786,
+  "command_watchdog_at_s": null,
+  "physics_lateness_p99_ms": 0.4102296076598577
+}

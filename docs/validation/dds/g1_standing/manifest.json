@@ -1,0 +1,68 @@
+{
+  "args": {
+    "robot": "g1",
+    "scenario": "standing",
+    "output": "runs/dds_release/g1_standing",
+    "domain_id": 182,
+    "motion_start": 2.8,
+    "motion_end": 24.0,
+    "blend": 0.4,
+    "entry_gap": 1.5,
+    "exit_gap": 2.0,
+    "speed": 0.3,
+    "post_seconds": 6.0,
+    "max_seconds": 45.0,
+    "packet_timeout": 0.1,
+    "left_assist": "coordinated",
+    "fault": "none",
+    "role": "run"
+  },
+  "scene": "assets/public/unitree_mujoco/unitree_robots/g1/scene_29dof.xml",
+  "transport": "dds",
+  "network_interface": "lo",
+  "physics_hz": 500,
+  "feedback_hz": 500,
+  "policy_hz": 50,
+  "python": "3.8.20",
+  "mujoco": "3.2.3",
+  "numpy": "1.24.4",
+  "unitree_sdk2py": "1.0.1",
+  "cyclonedds": "0.10.2",
+  "asset_manifest_sha256": "c3b68915c276c9ebc914dea347e91f95c136a5c7042734b5c62ee69ab3e8755b",
+  "source_hashes": {
+    "stridebridge/__init__.py": "c6025f257a7781e49dc9e1831d49e665b63cbfc62256854626ec1c2632ce1450",
+    "stridebridge/dds.py": "384948bd1d54659356e822647a12bf7ef1a4d71783d25cddbc634d8e087b7033",
+    "stridebridge/dds_demo.py": "807215064dba6b586b6239389316f20ef25b0f235944a724eb1f4faf4e0f3648",
+    "stridebridge/dds_sim.py": "bf214f18eaacea4a1ffdf374fb2dd4e040405bfc8e737196efbc01285b4d5f07",
+    "stridebridge/demo.py": "7bcfe7e67bea4ebc69a069769b53091834ef4d3344cd0a02efc8c4b4b7c33e08",
+    "stridebridge/g1.py": "1345c67a970802d7c91c5a1801550f0d6545f4c327eab76d250531c70bd26d4c",
+    "stridebridge/geometry.py": "6bfee239b530a69598a60151378aca83ef0f10db5e2230eb826dfa66244338ac",
+    "stridebridge/h1.py": "b012c6f811e72a75a0c735f2e4ac03cff8b97d626ee1f6460631d3f6320dfc0f",
+    "stridebridge/left_leg_assist.py": "ffe8394c48e0ae65f719554e6a790a512fa018cc047deaa3b1f676898cfdd689",
+    "stridebridge/models.py": "d5b730bdc956f5a463a9c51cfbcf43209d7cb56dca725f2be537043f29bc7a82",
+    "stridebridge/render.py": "78840d3a753081dda0c7f0bb053a4fbf453b1191219a6f4054400044a6949b85",
+    "stridebridge/simulation.py": "d0cdc1bf75a3e99e20a214bf464aa31e9fa08da582afb0a17c623b500568aa7c",
+    "stridebridge/switcher.py": "975a0e8a5ddb23cd4701f8061c0841a0d45cdb9977927110fe0aaf250051edcf"
+  },
+  "onnxruntime": "1.19.2",
+  "scipy": "1.10.1",
+  "sdk_source_hashes": {
+    "core/channel.py": "8a58eea2bc6bb8792e5b5fa76949407bd8c2ef8af07172d1a3a465bcc544e247",
+    "idl/default.py": "b3101722e07534c667d4c673677a8a5d57643f307cfdeb11f4761ebc456b18ea",
+    "utils/crc.py": "b95a530423f72c5acc96811f75677699cb3a185b6327353e7c44b355a425a20e"
+  },
+  "criteria": {
+    "post_seconds": 6.0,
+    "settle_allowance_seconds": 1.0,
+    "max_post_tilt_deg": 15.0,
+    "fall_tilt_deg": 45.0,
+    "min_base_height_m": 0.45,
+    "max_standing_mean_planar_speed_m_s": 0.15,
+    "max_walking_mean_vx_error_m_s": 0.15,
+    "real_time_factor_range": [
+      0.95,
+      1.05
+    ],
+    "packet_timeout_s": 0.1
+  }
+}

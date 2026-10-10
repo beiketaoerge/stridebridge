@@ -13,3 +13,24 @@ jobs:
       - run: python -m pip install -e '.[test]' -c requirements-tested.txt
       - run: python -m pytest -q
       - run: python -B examples/h1_latest/tests/test_operator_flow.py
+  dds_contract:
+    runs-on: ubuntu-latest
+    env:
+      CYCLONEDDS_HOME: ${{ github.workspace }}/.cache/cyclonedds/install
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Build pinned native CycloneDDS
+        run: |
+          git clone --depth 1 --branch 0.10.2 https://github.com/eclipse-cyclonedds/cyclonedds.git .cache/cyclonedds
+          cmake -S .cache/cyclonedds -B .cache/cyclonedds/build -DCMAKE_INSTALL_PREFIX="$CYCLONEDDS_HOME" -DBUILD_EXAMPLES=OFF -DBUILD_TESTING=OFF
+          cmake --build .cache/cyclonedds/build --target install --parallel 2
+      - name: Install SDK2 with its CRC libraries
+        run: |
+          git clone https://github.com/unitreerobotics/unitree_sdk2_python.git .cache/unitree_sdk2_python
+          git -C .cache/unitree_sdk2_python checkout 404fe44d76f705c002c97e773276f2a8fefb57e4
+          python -m pip install -e .cache/unitree_sdk2_python -c requirements-tested.txt
+          python -m pip install -e '.[dds,test]' -c requirements-tested.txt
+      - run: python -m pytest -q tests/test_dds_contract.py tests/test_dds_feedback.py

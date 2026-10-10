@@ -64,5 +64,7 @@ gait-phase entry.
 
 The switching primitive rejects nonfinite feedback and commands, negative gains
 and invalid timing. The original H1 controller additionally owns operator priority,
-feedback age/tick validation, CRC handling and stop behavior. The standalone
-simulation loop does not open SDK/DDS channels or send hardware commands.
+feedback age/tick validation, CRC handling and stop behavior. The direct
+simulation loop does not open SDK/DDS channels. The [DDS runner](dds.md) exchanges
+SDK2 low-level messages with a separate MuJoCo process and validates packet CRCs,
+age and tick progression. Its interface is restricted to loopback simulation.

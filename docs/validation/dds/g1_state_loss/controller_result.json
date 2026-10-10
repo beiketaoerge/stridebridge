@@ -1,0 +1,10 @@
+{
+  "pid": 1361565,
+  "failure": "RuntimeError: Stale DDS feedback: receipt=0.1109s tick=0.1109s",
+  "returned_at_s": null,
+  "events": [],
+  "states_received": 1506,
+  "invalid_states": 0,
+  "commands_sent": 156,
+  "policy_steps": 156
+}
